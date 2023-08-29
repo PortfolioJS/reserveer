@@ -10,5 +10,5 @@ The method for removing reservations, also in the abstract class Table - which w
 
 All in all this project is the result of an incremental approach: for conveniency reasons I chose to look for an example and build further on that OOP architecture. During the process it turned out to be a more complex project than imagined, because new considerations of the functionality of the system popped up. Of course, I could have chosen to keep the system simpler in the first place, why split reservations, say. Eventually, complexity had reached a threshold and I decided that reservations for more than 6 persons would get a simple message: phone us! (Maybe if I had started thinking about what functionality this system should have beforehand, this system would have turned out simpler.)
 
-Note: the comments in the project are in dutch.
+Note: the comments in the project are in Dutch.
 
