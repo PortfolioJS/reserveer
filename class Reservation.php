@@ -16,7 +16,7 @@ class Reservation
 	 * @param Guest $guest
 	 * @param int $numberOfGuests
 	 */
-	function __construct($startDate, Guest $guest, $numberOfGuests, ...$splitReservation) //de $splitReservation bool|array staat default op False (als-ie niet ingevuld is; EIGENLIJK IS HET EEN LEGE ARRAY); in de BookManager Class wordt hij bij een opgesplitste reservering op True gezet (dan wordt het een array met op index 0 de 1 (True) en op index 1 de $id van de bijbehorende reservering: $reservation->getID(), zie hieronder)
+	function __construct($startDate, Guest $guest, $numberOfGuests, ...$splitReservation) //de $splitReservation bool|array staat default op False (als-ie niet ingevuld is; EIGENLIJK IS HET DAN EEN LEGE ARRAY); in de BookManager Class wordt hij bij een opgesplitste reservering op True gezet (dan wordt het bij de bijbehorende reservering(en) een array met op index 0 de 1 (True), op index 1 de $id van de bijbehorende reservering: $reservation->getID() en op index 2 het aantal tafels waarover de reservering is verdeeld, zie hieronder)
 	{ //LET OP: de $splitReservation bool staat bij de EERSTE reservering (voor de split) nog op False en wordt pas bij het aanmaken van een nieuw reserveringsobject door BookManager op True gezet (zie de BookManager Class)
 		$this->startDate = new DateTime($startDate);
 		$minutes = 149; //aangenomen dat een restaurantbezoek max. 2,5 uur duurt
