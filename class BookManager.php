@@ -186,12 +186,12 @@ class BookManager
 				Reservation::$count--; //de reservering wordt afgeteld (BELANGRIJK: omdat het aanmaken van de Reservation $id gekoppeld is aan de $count)
 				break; //break kan hier omdat er maar 1 reservering te verwijderen is
 			} elseif (($key = array_search($reservation, $table->getReservations())) !== false && !empty($reservation->getSplitReservation())) {
-				if ($reservation->getSplitReservation() === True) {
+				// if ($reservation->getSplitReservation() === True) { //deze if is strikt genomen niet nodig, omdat: als $splitReservation !empty is, hij True is (zie class Reservation: __construct())
 					$id = $reservation->getID(); //$id is bij SplitReservation nodig om ook de tweede (en evt. derde) reservering te verwijderen
 					Bookmanager::cancelTableS($id); //hiermee worden alle SplitReservations verwijderd (zie functie hieronder)
 					Reservation::$count--; //de SplitReservation wordt 1 keer afgeteld (BELANGRIJK: omdat het aanmaken van de Reservation $id gekoppeld is aan de $count)
 					break; //want deze loop/functie heeft zijn taak gedaan (de SplitReservations worden nu op basis van hun $id verwijderd)
-				}
+				// }
 			}
 		}
 	}
